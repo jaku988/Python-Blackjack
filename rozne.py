@@ -1,3 +1,4 @@
+import time
 import random
 
 cyfry = ["2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -35,8 +36,17 @@ def points(card):
 
     return points
 
-def points_sum(**kwargs):
-    summ = 0
-    for key, value in kwargs.items():
-        summ += int(value)
-    return summ
+
+def pokaz_karty(tab, n, tab2, m):
+    print("Karty Kurwiera: ")
+    for i in tab:
+        print(str(i) + " ", end="")
+        time.sleep(0.5)
+    print("Krupier ma " + str(n) + " punktow")
+    print()
+    print("Karty gracza: ")
+    for i in tab2:
+        print(str(i) + " ", end="")
+        time.sleep(0.5)
+    print("Masz " + str(m) + " punktow")
+    print()
