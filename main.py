@@ -1,22 +1,6 @@
 import rozne as mis
 import time
 
-
-def pokaz_karty(tab, n, tab2, m):
-    print("Karty Kurwiera: ")
-    for i in tab:
-        print(str(i) + " ", end="")
-        time.sleep(0.5)
-    print("Krupier ma " + str(n) + " punktow")
-    print()
-    print("Karty gracza: ")
-    for i in tab2:
-        print(str(i) + " ", end="")
-        time.sleep(0.5)
-    print("Masz " + str(m) + " punktow")
-    print()
-
-
 depozyt = -1
 while depozyt <= 0:
     depozyt = float(input("Podaj swoj depozyt: "))
@@ -91,8 +75,8 @@ while depozyt > 0:
             gracz_punkty = 21
 
         if krupier_blackjack == True and gracz_blackjack == False:
-            pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
-            print("kurwier ma Blackjacka - Przegrales :(")
+            mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+            print("Krupier ma Blackjacka - Przegrales :(")
             print()
             depozyt = depozyt - zaklad
             Koniec = True
@@ -100,7 +84,7 @@ while depozyt > 0:
 
         elif krupier_blackjack == False and gracz_blackjack == True:
             krupier_punkty = mis.points(karty_krupiera[0]) + mis.points(karty_krupiera[1])
-            pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+            mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
 
             if Kkarta1 == "[A]" and krupier_punkty > 21:
                 krupier_punkty = krupier_punkty - 10
@@ -116,17 +100,17 @@ while depozyt > 0:
             break
 
         elif krupier_blackjack and gracz_blackjack:
-            pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+            mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
             print("Podwojny blackjack - Remis, Zaklad wraca do ciebie")
             print()
             Koniec = True
             break
 
         print()
-        print("Karty Kurwiera: ")
+        print("Karty Krupiera: ")
         time.sleep(0.5)
         print(Kkarta1 + "[ ]")
-        print("Kurwier ma " + str(krupier_punkty) + " punktow")
+        print("Krupier ma " + str(krupier_punkty) + " punktow")
         print()
         print("Karty Gracza: ")
         for karta in karty_gracza:
@@ -166,7 +150,7 @@ while depozyt > 0:
                     krupier_punkty = krupier_punkty - 10
                     klicznik_asow = klicznik_asow - 1
 
-                pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+                mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
 
                 print("Przegrales :(")
                 print()
@@ -182,14 +166,14 @@ while depozyt > 0:
                 krupier_punkty = krupier_punkty - 10
 
             if krupier_punkty > 16:
-                pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+                mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
 
             while krupier_punkty <= 16:
                 if len(karty_krupiera) == 2:
-                    pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+                    mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
                     time.sleep(1.5)
 
-                print("Kurwier dobiera...")
+                print("Krupier dobiera...")
                 print()
                 time.sleep(1)
 
@@ -205,7 +189,7 @@ while depozyt > 0:
                     krupier_punkty = krupier_punkty - 10
                     klicznik_asow = klicznik_asow - 1
 
-                pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
+                mis.pokaz_karty(karty_krupiera, krupier_punkty, karty_gracza, gracz_punkty)
                 time.sleep(1.5)
 
             if krupier_punkty > 21:
