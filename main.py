@@ -11,7 +11,6 @@ while depozyt > 0:
     zaklad = 0
     while zaklad <= 0 or zaklad > depozyt:
         zaklad = float(input("Podaj zaklad: "))
-    Przegrana = False
 
     karty_gracza = []
     karty_krupiera = []
